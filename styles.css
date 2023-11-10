@@ -1,0 +1,346 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    background-color: #e91e632b;
+}
+
+.custom-search {
+    position: relative;
+}
+
+.home-button {
+    position: relative;
+}
+
+.home-button::before,
+.home-button::after {
+    content: "*";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    color: transparent; /* Màu trong suốt ban đầu */
+    transition: color 0.5s; /* Thêm transition */
+}
+
+.home-button:hover::before,
+.home-button:hover::after {
+    color: pink; /* Màu của dấu chấm khi hover */
+}
+
+.home-button::before {
+    left: -20px; /* Khoảng cách của dấu chấm bên trái */
+    transition-delay: 0.2s; /* Trễ cho dấu chấm bên trái */
+}
+
+.home-button::after {
+    right: -20px; /* Khoảng cách của dấu chấm bên phải */
+    transition-delay: 0.2s; /* Trễ cho dấu chấm bên phải */
+}
+
+.custom-search input {
+    padding-right: 40px; /* Space for the icon */
+    transition: border-color 0.3s ease-in-out;
+}
+
+.custom-search button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.custom-search button img {
+    max-width: 20px;
+    max-height: 20px;
+    transition: filter 0.3s ease-in-out;
+}
+
+.custom-search button:hover {
+    color: rgb(73 192 218);
+    transition-delay: 0.2s;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    width: 151px;
+    line-height: 30px;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 2px;
+}
+
+.submenu li{
+    list-style: none;
+}
+
+.submenu li a {
+    color: #000;
+    font-family: cursive;
+    text-decoration: none;
+}
+
+.nav-item:hover .submenu {
+    display: block;
+}
+
+.submenu li:hover a {
+    color: red;
+    transition: color 0.3s ease-in-out;
+}
+
+.btn-outline-secondary:hover {
+   background-color: red;
+   boder-color: red;
+   transition-delay: 0.2s;
+}
+
+.custom-search button:hover img {
+    filter: brightness(2); /* Tăng độ sáng khi hover */
+}
+
+.custom-search input:focus {
+    border-color: #007bff;
+}
+
+.btn-check:focus+.btn-outline-secondary, .btn-outline-secondary:focus{
+    box-shadow: 0 0 0 -0.75rem rgb(0 255 255 / 50%);
+    background-color: #00ffde75;
+}
+
+.navbar-nav {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    display: block;
+}
+
+/* Thêm CSS cho hiệu ứng khi di chuột qua */
+.nav-item:hover {
+    background-color: #eee;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(9 9 9 / 94%);
+    font-family: cursive;
+    text-transform: uppercase;
+}
+
+.navbar-expand-lg {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: rgb(255 0 0 / 70%);
+}
+
+.carousel-inner {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-inner .carousel-item img{
+    
+}
+
+.subnav {
+    background-image: url('https://wallart.vn/Portals/37/DNNGo_Combobox/64349/0/Gi%E1%BA%A5y%20d%C3%A1n%20t%C6%B0%E1%BB%9Dng%20m%E1%BA%ABu%20tr%C6%A1n%20m%C3%A0u%20h%E1%BB%93ng%20nh%E1%BA%A1t%207914-12.jpg'); /* Đường dẫn đến hình nền */
+    background-size: cover; /* Đảm bảo hình nền đủ rộng và cao */
+    background-position: center; /* Canh giữa hình nền */
+    color: #fff; /* Màu chữ trắng để đảm bảo đọc được nếu hình nền tối */
+    text-align: center; /* Căn giữa nội dung */
+    padding: 20px; /* Khoảng cách giữa nội dung và mép */
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Bo tròn hình ảnh */
+}
+
+.sub-title {
+    margin-top: 10px;
+}
+
+    .card {
+        overflow: hidden;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+    .card img {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .card:hover img {
+        transform: scale(1.2);
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-title {
+        margin-bottom: 10px;
+    }
+
+    .card-price {
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: background-color 1s ease;
+    }
+
+    .subnav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        color: black;
+    }
+
+    .subnav img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    .subnav .sub-title {
+        margin-bottom: 10px;
+    }
+
+    .title-sub {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .title-sub img {
+        width: 48%;
+        margin-bottom: 10px;
+    }
+
+    .title-sub p {
+        width: 48%;
+        margin: 0; /* Đặt margin thành 0 để loại bỏ khoảng trắng mặc định */
+        padding-left: 10px; /* Thêm padding bên trái để tạo khoảng cách giữa văn bản và hình ảnh */
+    }
+
+    .ingredient-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-top: 20px;
+        align-items: flex-start; /* Đưa các phần tử về phía trên */
+    }
+
+    .ingredient-section div {
+        text-align: left;
+        margin: 10px;
+        
+        padding: 10px;
+    }
+
+    .ingredient-section img {
+        width: 22px;
+        height: 22px;
+        margin-right: 10px; /* Tăng khoảng cách giữa hình ảnh và văn bản */
+    }
+
+    .ingredient-section .pink{
+        color: #ff00bc;
+    }
+
+    #content{
+        margin: 36px 0;
+    }
+
+    .team-section {
+        background-image: url('https://png.pngtree.com/background/20230528/original/pngtree-an-interior-shot-of-a-pink-and-blue-bakery-with-counters-picture-image_2776450.jpg'); /* Đường dẫn đến background image */
+        background-size: cover; /* Tự động điều chỉnh kích thước để che phủ */
+        background-position: center; /* Căn giữa */
+        color: white; /* Màu chữ trắng để hiển thị trên background image */
+        text-align: center; /* Căn giữa nội dung */
+        padding: 50px; /* Đặt khoảng cách giữa nội dung và viền của div */
+        margin-top: 20px;
+    }
+
+    .team-header {
+         /* Một lớp màu đen với độ trong suốt để làm nổi bật tiêu đề */
+        padding: 20px; /* Khoảng cách giữa tiêu đề và nền */
+    }
+
+    .team-header h2 {
+        margin: 0; /* Loại bỏ margin mặc định của tiêu đề */
+    }
+
+    .team-image img {
+        width: 100%; /* Chắc chắn rằng hình ảnh sẽ có chiều rộng 100% của độ rộng của div */
+        border-radius: 50%; /* Làm tròn mép của hình ảnh */
+        margin-top: 20px; /* Khoảng cách giữa hình ảnh và tiêu đề */
+    }
+
+    .team-section {
+        /* Thêm CSS theo ý muốn cho phần này */
+    }
+
+    .team-member {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .member {
+        text-align: center;
+    }
+
+    .member img {
+        margin-bottom: 10px;
+    }
