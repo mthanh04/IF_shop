@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IF SHOP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.21/dist/vue.global.prod.js"></script>
+    <link rel="stylesheet" href="/asset/styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <header class="container">
+                <a class="navbar-brand" href="#"><img style="width: 230px; height: 170px;" src="/asset/logo.png"
+                        alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <form style="width: 70%;" class="d-flex ms-auto custom-search">
+                        <input type="text" class="form-control" v-model="searchQuery" @keyup.enter="search"
+                            placeholder="Tìm kiếm sản phẩm" aria-label="Search">
+                        <button class="btn btn-outline-secondary" @click="search">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                        </button>
+                    </form>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a style="margin-left: 10px;" class="nav-link" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="26" fill="currentColor"
+                                    class="bi bi-cart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+        </nav>
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <header class="container navbar-header" style="background-color: rgb(255, 255, 255);">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active home-button" aria-current="page" href="#">Trang Chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active home-button" aria-current="page" href="#">Thông Tin Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active home-button" aria-current="page" href="#">Sản Phẩm Khác</a>
+                            <!-- Mục nhỏ trong Sản Phẩm Khác -->
+                            <ul class="submenu">
+                                <li><a href="#">Bánh Bông Lan</a></li>
+                                <li><a href="#">Bánh Mỳ</a></li>
+                                <li><a href="#">Bánh Cake</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active home-button" aria-current="page" href="#">Liên Hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+        </nav>
+
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img style="width: 1320px; height: 600px; margin-left: 100px; object-fit: cover;" :src="slides[0]"
+                        class="d-block" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                    <img style="width: 1320px; height: 600px; margin-left: 100px; object-fit: cover;" :src="slides[1]"
+                        class="d-block" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img style="width: 1320px; height: 600px; margin-left: 100px; object-fit: cover;" :src="slides[2]"
+                        class="d-block" alt="Slide 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        </div>
+
+        <div class="subnav">
+            <img src="/asset/banh_transparent.png" alt="">
+            <h2 class="sub-title">SWEET CAKE</h2>
+            <p>Mang đến những chiếc bánh ngọt ngào là hạnh phúc của chúng tôi</p>
+
+            <div class="title-sub">
+                <img style="width: 272px; height: 160px;"
+                    src="https://scakes.weba.vn/shop/images/scakes/hinhanh/slider.png" alt="">
+                <img style="width: 272px; height: 125px;"
+                    src="https://scakes.weba.vn/shop/images/scakes/hinhanh/typo-about.png" alt="">Được tận hưởng cảm xúc
+                thi vị của phố cổ, mà còn được thưởng thức hương vị Pháp ngay trong lòng Thủ Đô. Nằm trên con phố đông
+                đúc và cổ kính, Bánh Ngọt Pháp Anh Hòa từ lâu đã trở thành điểm đến của những người yêu thích Bánh Ngọt
+                Pháp
+            </div>
+
+            <div class="ingredient-section">
+                <div>
+                    <img src="https://scakes.weba.vn/web/shop/images/scakes/hinhanh/tick-icon.png" alt="Icon">
+                    <p class="pink">NGUYÊN LIỆU</p>
+                    <p>Chúng tôi chuyên cung cấp các nguyên liệu, dụng cụ làm bánh nhập khẩu.</p>
+                </div>
+                <div>
+                    <img src="https://scakes.weba.vn/web/shop/images/scakes/hinhanh/tick-icon.png" alt="Icon">
+                    <p class="pink">BÁNH NGỌT</p>
+                    <p>Những mẫu bánh mới nhất trong năm nay do chính chúng tôi thiết kế.</p>
+                </div>
+                <div>
+                    <img src="https://scakes.weba.vn/web/shop/images/scakes/hinhanh/tick-icon.png" alt="Icon">
+                    <p class="pink">BÁNH GATO</p>
+                    <p>Những mẫu bánh mới nhất trong năm nay do chính chúng tôi thiết kế.</p>
+                </div>
+                <div>
+                    <img src="https://scakes.weba.vn/web/shop/images/scakes/hinhanh/tick-icon.png" alt="Icon">
+                    <p class="pink">KINH NGHIỆM LÀM BÁNH</p>
+                    <p>Hướng dẫn và chia sẻ kinh nghiệm để tạo ra những sản phẩm tốt nhất.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="content">
+            <h2 style="text-align: center;">SẢN PHẨM BÁN CHẠY</h2>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.21/dist/vue.global.prod.js"></script>
+    <script src="/asset/app.js"></script>
+
+
+    <div id="doan" class="container">
+        <div class="row">
+            <food-item v-for="(food, index) in foods" :key="index" :food="food"></food-item>
+        </div>
+    </div>
+
+    <div class="team-section">
+        <div class="team-header">
+            <h2 style="font-family: 'Lobster', cursive; font-weight: 700; color: aqua;">Đội Ngũ Nhân Viên</h2>
+        </div>
+        <div class="team-image">
+            <img style="width: 230px; height: 230px; border-radius: 50%;" src="/asset/logo_team_transparent.png" alt="Team Image">
+        </div>
+        <div class="describe">
+            <p style="color: #fff; font-weight: 600; font-family: 'Roboto', sans-serif; text-align: justify; width: 40%; margin-left: 450px; text-align: center;">
+                Trên quầy bánh, những tác phẩm nghệ thuật ẩm thực đa dạng và màu sắc đẹp mắt thu hút mọi ánh nhìn. Bánh
+                ngọt ở đây không chỉ là đơn thuần những chiếc bánh ngọt truyền thống, mà còn là những sáng tạo độc đáo
+                với hình dạng và hương vị đa dạng. Từ những chiếc bánh cupcake nhỏ xinh đến những chiếc bánh lớn hùng
+                vĩ, tất cả đều được làm thủ công và chăm sóc đặc biệt.
+            </p>
+        </div>
+        <div class="team-member">
+            <div class="member">
+                <img style="width: 150px; height: 150px; border-radius: 50%;font-size: 20px;" src="https://e0.pxfuel.com/wallpapers/672/304/desktop-wallpaper-goku-ultra-instinct-goku-ui.jpg" alt="Team Member 1">
+                <p style="font-weight: 600;color: #1ad7d9;font-family: 'Roboto', sans-serif;">KAKAROTTO</p>
+                <p style="font-family: 'Roboto', sans-serif;" >Bản năng vô cực</p>
+            </div>
+            <div class="member">
+                <img style="width: 150px; height: 150px; border-radius: 50%;" src="https://xedich5chau.com/wp-content/uploads/2022/12/Hinh-nen-vegeta-ultra-ego-dep-moi-10.jpg" alt="Team Member 2">
+                <p style="font-weight: 600;color: #1ad7d9;font-size: 20px;font-family: 'Roboto', sans-serif;" >VEGETA</p>
+                <p style="font-size: 16px;font-family: 'Roboto', sans-serif;">Bản ngã tối thượng</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        // Vue component for each food item
+        const FoodItem = {
+            props: ['food'],
+            data() {
+                return {
+                    quantity: 0,
+                };
+            },
+            template: `
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img :src="food.image" class="card-img-top" alt="Food Image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ food.name }}</h5>
+                            <p class="card-price">{{ food.price }}</p>
+                            <button @click="addToCart">Thêm vào giỏ hàng</button>
+                            <p>Số lượng: {{ quantity }}</p>
+                        </div>
+                    </div>
+                </div>
+            `,
+            methods: {
+                addToCart() {
+                    this.quantity++;
+                },
+            },
+        };
+
+        // Vue app
+        const doan = Vue.createApp({
+            data() {
+                return {
+                    foods: [
+                        { name: 'Fazen Mikam', image: '/asset/slider_4.png', price: '$10.99' },
+                        { name: 'Giren Mitena', image: '/asset/slider_3.jpg', price: '$12.99' },
+                        { name: 'Derum Mipase', image: '/asset/slider_2.jpg', price: '$8.99' },
+                        { name: 'Imas Enama', image: '/asset/slider_1.jpg', price: '$14.99' },
+                        { name: 'Imas Enama', image: '/asset/slider_1.jpg', price: '$14.99' },
+                        { name: 'Imas Enama', image: '/asset/slider_1.jpg', price: '$14.99' },
+                        { name: 'Imas Enama', image: '/asset/slider_1.jpg', price: '$14.99' },
+                        { name: 'Imas Enama', image: '/asset/slider_1.jpg', price: '$14.99' },
+                    ],
+                };
+            },
+        });
+
+        // Đăng ký component
+        doan.component('food-item', FoodItem);
+
+        // Mount ứng dụng
+        doan.mount('#doan');
+    </script>
+
+
+</body>
+
+</html>
